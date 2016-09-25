@@ -81,9 +81,120 @@ Multiline comments
 
 (defvar *age* 18)
 
-(if (not (= *age* 18))
+(if (= *age* 18)
 	(format t "You can vote~%")
 	(format t "You can't vote~%"))
+
+(if (and (<= *age* 14) (>= *age* 67) )
+	(format t "Time for work~%")
+	(format t "Work if you want~%"))
+
+
+(if (or (<= *age* 14) (>= *age* 67) )
+	(format t "Work if you want~%")
+	(format t "Time for work~%"))
+
+	(defvar *num* 2)
+	(defvar *num-2* 2)
+	(defvar *num-3* 2)
+	
+(if (= *num* 2)
+	(progn
+		(setf *num-2* (* *num-2* 2))
+		(setf *num-3* (* *num-3* 3))
+	)
+	(format t "Not equal to 2~%"))
+()
+
+(format t "*num-2* = ~d ~%" *num-2*)
+(format t "*num-3* = ~d ~%" *num-3*)
+
+(defvar *age* 18)
+
+(defun get-school (age)
+	(case age
+		(5 (print "Kindergarten"))
+		(6 (print "First Grade"))
+		(otherwise (print "Middle School"))))
+
+(get-school *age*)
+
+(terpri)
+
+(when (= *age* 18)
+	(setf *num-3* 18)
+	(format t "Go to college you're ~d ~%" *num-3*)
+)
+
+(unless (not (= *age* 18))
+	(setf *num-3* 20)
+	(format t "Something random ~%" *num-3*)
+)
+
+
+(defvar *college-ready* nil)
+
+(cond ( (>= *age* 18)
+			(setf *college-ready* 'yes)
+			(format t "Ready for college ~%"))
+	  ( (< *age* 18)	
+	  		(setf *college-ready* 'no)
+			(format t "Not ready for college ~%"))
+	  (t (format t "Dont know ~%")))
+
+(loop for x from 1 to 10
+	do (print x))
+
+(terpri)
+
+(setq x 1)
+
+(loop 
+	(format t "~d ~%" x)
+	(setq x (+ x 1))
+	(when (> x 10) (return x))
+)
+
+(loop for x in '(Peter Paul Mary) do 
+	(format t "~s ~%" x)
+)
+
+(loop for y from 100 to 110 do
+	(print y)
+)
+
+(dotimes (y 12)
+	(print y)
+)
+
+(terpri)
+
+(cons 'superman 'batman)
+
+(list 'superman 'batman 'flash)
+
+(cons 'aquaman '(superman batman))
+
+(format t "First = ~a ~%" (car '(superman batman aquaman)))
+
+(format t "Everything else = ~a ~%" (cdr '(superman batman aquaman)))
+
+(format t "2nd item = ~a ~%" (cadr '(superman batman aquaman flash joker)))
+
+(format t "4th item = ~a ~%" (cadddr '(superman batman aquaman flash joker)))
+
+(format t "Is it a list? = ~a ~%" (listp '(batman superman)))
+
+(format t "Is 3 in list? = ~a ~%" (if (member 3 '(2 4 6)) 't nil))
+
+
+
+
+
+
+
+
+
 
 
 
