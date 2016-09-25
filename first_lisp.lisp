@@ -46,9 +46,44 @@ Multiline comments
 (format t "(rem 5 6) = ~d ~%" (rem 5 6))
 (format t "(mod 5 6) = ~d ~%" (mod 5 6))
 
+(format t "(expt 4 2) = ~d ~%" (expt 4 2))
+(format t "(sqrt 81) = ~d ~%" (sqrt 81))
+(format t "(exp 1) = ~d ~%" (exp 1))
+(format t "(log 1000 10) = ~d ~%" (log 1000 10)) ; = 3 = Because 10^3 = 1000
+(format t "(eq 'dog 'dog) = ~d ~%" (eq 'dog 'dog))
+(format t "(floor 5.5) = ~d ~%" (floor 5.5))
+(format t "(ceiling 5.5) = ~d ~%" (ceiling 5.5))
+(format t "(max 5 10) = ~d ~%" (max 5 10))
+(format t "(min 5 10) ~d ~%" (min 5 10))
+(format t "(oddp 15) = ~d ~%" (oddp 15))
+(format t "(evenp 15) = ~d ~%" (evenp 15)) ; Nil also means false
+(format t "(numberp 2) = ~d ~%" (numberp 2))
+(format t "(null nil) = ~d ~%" (null nil))
 
+;;; sin, cos, tan, asin, acos, atan 
 
+(defparameter *name* 'Syema)
 
+(format t "(eq *name 'Syema) = ~d ~%" (eq *name* 'Syema))
+(format t "(equal 'car 'truck) = ~d ~%" (equal 'car 'truck))
+(format t "(equal 10 10) = ~d ~%" (equal 10 10))
+(format t "(equal 5.5 5.3) = ~d ~%" (equal 5.5 5.3))
+
+(format t "(equal \"string\" \"String\") = ~d ~%"
+	(equal "string" "String"))
+
+(format t "(equal (list 1 2 3) (list 1 2 3)) = ~d ~%"
+	(equal (list 1 2 3) (list 1 2 3)))
+
+(format t "(equalp 1.0 1) = ~d ~%" (equalp 1.0 1))
+(format t "(equalp \"syema\" \"Syema\") = ~d ~%"
+	(equalp "syema" "Syema"))
+
+(defvar *age* 18)
+
+(if (not (= *age* 18))
+	(format t "You can vote~%")
+	(format t "You can't vote~%"))
 
 
 
