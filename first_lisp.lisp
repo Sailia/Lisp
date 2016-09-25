@@ -187,14 +187,30 @@ Multiline comments
 
 (format t "Is 3 in list? = ~a ~%" (if (member 3 '(2 4 6)) 't nil))
 
+(append '(just) '(some) '(random words))
 
+(defparameter *nums* '(2 4 6))
+(push 1 *nums*)
 
+(format t "2nd item in list ~a ~%" (nth 2 *nums*))
 
+(defvar superman (list :name "Superman" :secret-id "Clark Kent"))
 
+(defvar *hero-list* nil)
 
+(push superman *hero-list*)
 
+(dolist (hero *hero-list*)
+	(format t "~{~a : ~a ~}~%" hero))
 
+(defparameter *heroes*
+	'((Superman (Clark Kent))
+	(Flash (Barry Allen))
+	(Batman (Bruce Wayne))))
 
+(format t "Superman Data ~a ~%" (assoc 'superman *heroes*))
+
+(format t "Superman is ~a ~%" (cadr (assoc 'superman *heroes*)))
 
 
 
